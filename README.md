@@ -53,3 +53,12 @@ in `frontend/.env.local`.
 - **Products:** List with category filter and search, product cards
 - **Product detail:** Single product view with price and description
 - Green-themed UI (various shades of green, garden feel)
+
+## Deploy on GitHub Pages
+
+The site can be hosted on GitHub Pages. On every push to `main`, GitHub Actions builds the frontend (with the backend running for build-time data) and deploys the static export.
+
+1. In your repo on GitHub, go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Push to `main`; the workflow will build and deploy. The site will be at:
+   - **https://abbari6566.github.io/Growmart/**

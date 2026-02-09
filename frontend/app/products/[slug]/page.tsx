@@ -1,6 +1,15 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { fetchProductBySlug } from "@/lib/api";
+import { fetchProductBySlug, fetchProducts } from "@/lib/api";
+
+export async function generateStaticParams() {
+  try {
+    const products = await fetchProducts({ limit: 500 });
+    return products.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
